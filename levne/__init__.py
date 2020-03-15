@@ -90,7 +90,7 @@ def getClusteredDims(chains,reduction='tsne',elbow=0.2,simulations=20):
     })
     return(df)
 
-def drawClusters(chains,reduction='tsne',colorby=[],elbow=0.2,simulations=20,save=True,outdir=None):
+def drawClusters(chains,reduction='tsne',colorby=[],elbow=0.2,simulations=20,save=False,outdir=None):
     coords = reduceDims(chains,reduction=reduction)
     clusters = findClusters(coords=coords,elbow=elbow,simulations=simulations)
     uniqueClusters = numpy.unique(clusters)

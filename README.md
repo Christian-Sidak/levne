@@ -47,7 +47,7 @@ Arguments:
 
 
 #### Draw Clusters
-```drawClusters(chains,reduction='tsne',colorby=[],elbow=0.2,simulations=20,save=True,outdir=None)```
+```drawClusters(chains,reduction='tsne',colorby=[],elbow=0.2,simulations=20,save=False,outdir=None)```
 
 This function takes pandas Series or list in the ```chains``` parameter, calls reduceDims() and findClusters(), and then creates a scatterplot of the output using matplotlib, colored by the cluster annotations from the findClusters() parameter. You can also color the dots of the scatterplot by category by supplying a list of strings to the colorby parameter. 
 
