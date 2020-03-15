@@ -4,16 +4,16 @@ Levne is a python package that takes a list of strings, computes a dis
 
 The package can be used to compare the similar of TCR amino acid sequences, to produce clustering visualizations. Technically, any list of strings can be supplied to levne for distance matrix computation, dimensionality reduction, and clustering, so long as it is formatted as a list or pandas Series.
 
-#Installation and Requirements
+#### Installation and Requirements
 
 Levne can be installed by running the following bash script from the command line:
 
 ```pip install levne```
 
-#Exported Functions
+## Exported Functions
 Levne exports four main functions, depending upon the exact kind of output the user wants and how far they want to go in their anaysis. 
 
-##Reduce Dims
+#### Reduce Dims
 ```reduceDims(chains, reduction='tsne',outputtype = 'numpy')```
 This function takes a set of strings, constructs a distance matrix based on the Levenshtein algorithm, then reduces the dimensions as either UMAP or TSNE.
 
@@ -22,7 +22,7 @@ Arguments:
 ```reduction``` - the method of dimensionality reduction you want to use (TSNE or UMAP)
 ```outputtype``` - 'numpy' to return a numpy array of coordinates, or 'pandas' if you would like to return a pandas dataframe (e.g. for csv export) 
 
-##Find Clusters
+#### Find Clusters
 ```findClusters(coords,elbow=0.2,simulations=20)```
 
 This function takes in the coordinates output from reduceDims() as a numpy array, then runs K means to cluster the strings based on coordinate position. findClusters will run K means at
@@ -34,7 +34,7 @@ Arguments:
 ```elbow``` -  the marginal reduction in SSD between simulation of N and M clusters at which you would like to stop simulating K means. Default is 20% (0.2).
 ```simulations``` - the max number of simulations you would like to run of K means. The first simulation will run with 1 cluster, running up to N clusters until SSD dips below elbow parameter or the number of simulations set by the simulations parameter.
 
-##Get Clustered Dims
+#### Get Clustered Dims
 ```getClusteredDims(chains,reduction='tsne',elbow=0.2,simulations=20)```
 
 This function calls reduceDims() and findClusters() on a list or pandas series, and returns a dataframe with the x and y coordinates of the dimensionality reduction, along with a cluster annotation.
@@ -46,7 +46,7 @@ Arguments:
 ```simulations``` - the max number of simulations you would like to run of K means. The first simulation will run with 1 cluster, running up to N clusters until SSD dips below elbow parameter or the number of simulations set by the simulations parameter.
 
 
-##Draw Clusters
+#### Draw Clusters
 ```drawClusters(chains,reduction='tsne',colorby=[],elbow=0.2,simulations=20,save=True,outdir=None)```
 
 This function takes pandas Series or list in the ```chains``` parameter, calls reduceDims() and findClusters(), and then creates a scatterplot of the output using matplotlib, colored by the cluster annotations from the findClusters() parameter. You can also color the dots of the scatterplot by category by supplying a list of strings to the colorby parameter. 
