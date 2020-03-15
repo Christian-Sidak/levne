@@ -8,8 +8,6 @@ setuptools.setup(
     version="0.0.1",
     author="Christian Šidák",
     description="A python package for Amino Acid Clustering. Published February 2020",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
     url="https://github.com/Christian-Sidak/levne.git",
     packages=['levne'],
     install_requires=[
